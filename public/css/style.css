@@ -1,0 +1,55 @@
+.beneficio {
+    background-image: url("/img/Presentacion.svg");
+    min-height: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.directorio {
+    background-image: url("/img/Presentacion.svg");
+    min-height: 300px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.asociaciones  {
+    background-image: url("/img/Presentacion.svg");
+    min-height: 300px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.contactenos  {
+    background-image: url("/img/Presentacion.svg");
+    min-height: 300px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax {
+    background-image: url("/img/Presentacion.svg");
+    min-height: 580px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
