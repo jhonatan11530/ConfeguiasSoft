@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,11 @@ Route::post('validar', 'LoginController@validar');
 
 Route::post('Registro', [RegistroController::class, 'store']);
 Route::post('Registro/filtrar', [RegistroController::class, 'filtrar']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('inicio', [HomeController::class, 'index']);
+
+});
 
 Route::get('logout', function() {
     Auth::logout();

@@ -19,8 +19,7 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->intended('inicio');
         } else {
-            return 0;
-            //            return redirect('login')->with('message', 'Error en los datos de acceso');
+           return redirect('login')->with('message', 'Error en los datos de acceso');
         }
     }
 }

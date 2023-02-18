@@ -27,8 +27,22 @@
             margin: auto;
             margin-top: 20px;
         }
+
+        .floating {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 30%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+            padding: 12px 16px;
+            font-size: 24px;
+            cursor: pointer;
+        }
     </style>
-    <div class="container">
+    <div class="container mb-5">
         {!! Form::open(['url' => 'Registro', 'files' => 'true']) !!}
         <img src="https://www.confeguias.com/wp-content/uploads/2022/01/captura-logo-horizontal.png" width="100%"
             height="200px" alt="image not found">
@@ -156,17 +170,19 @@
                     class="form-control mb-3" required>
                 <div id="Academicos"></div>
             </div>
-            <div class="form-group form-check">
+            <div class="form-group col-sm-12 form-check">
                 <input type="checkbox" class="form-check-input" name="AceptarTerminos" value="SI">
                 <label class="form-check-label">Aceptar Políticas y procedimientos para el tratamiento de datos
                     personales <span style="color: red">*</span></label><a href="#"> <span data-toggle="modal"
                         data-target="#ProteccionDatos">LEER POLÍTICAS DE DATOS</span></a>
             </div>
+
         </div>
         {!! Form::submit('Enviar Datos', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
         </form>
     </div>
+    <button class="floating"><span><a href="/" style="color: white">Atras</a></span></button>
 
     <!---- MODAL PROTECCION DE DATOS   ---->
     <div class="modal fade" id="ProteccionDatos" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -573,6 +589,7 @@
             </div>
         </div>
     </div>
+
 
     <script type="text/javascript">
         function reload() {
