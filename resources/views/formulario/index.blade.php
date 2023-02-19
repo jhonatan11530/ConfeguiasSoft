@@ -182,7 +182,7 @@
         {!! Form::close() !!}
         </form>
     </div>
-    <button class="floating"><span><a href="/" style="color: white">Atras</a></span></button>
+    <button class="floating"><span><a href="https://www.confeguias.com/" style="color: white">Atras</a></span></button>
 
     <!---- MODAL PROTECCION DE DATOS   ---->
     <div class="modal fade" id="ProteccionDatos" tabindex="-1" aria-labelledby="exampleModalLabel"
