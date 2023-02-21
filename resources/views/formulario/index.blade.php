@@ -57,7 +57,7 @@
                 <input type="text" name="Apellido" placeholder="Apellido" class="form-control mb-2" required>
             </div>
             <div class="form-group col-sm-6">
-                <label>Adjunto Registro Nacional de Turismo (Formato JPG,PNG) <span style="color: red">*</span></label>
+                <label>Adjuntar foto (Formato JPG,PNG) <span style="color: red">*</span></label>
                 <input type="file" name="AdjuntarFoto" accept="image/jpeg, image/png"
                     class="form-control mb-3" required>
             </div>
