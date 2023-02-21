@@ -45,15 +45,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('documentos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('usuario')->nullable();
-            $table->text('titulo')->nullable();
-            $table->text('categoria')->nullable();
-            $table->text('documento')->nullable();
-            $table->timestamps();
-        });
-
         Schema::create('denuncia', function (Blueprint $table) {
             $table->increments('id');
             $table->string('NombreDenunciante', 50)->nullable();

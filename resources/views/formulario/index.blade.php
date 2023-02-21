@@ -57,6 +57,11 @@
                 <input type="text" name="Apellido" placeholder="Apellido" class="form-control mb-2" required>
             </div>
             <div class="form-group col-sm-6">
+                <label>Adjunto Registro Nacional de Turismo (Formato JPG,PNG) <span style="color: red">*</span></label>
+                <input type="file" name="AdjuntarFoto" accept="image/jpeg, image/png"
+                    class="form-control mb-3" required>
+            </div>
+            <div class="form-group col-sm-6">
                 <label>Tipo de identificacion <span style="color: red">*</span></label>
                 <select name="TipoIdentificacion" class="form-control mb-2" required>
                     <option value="" selected disabled>Seleccione</option>
@@ -149,34 +154,6 @@
                 <textarea name="DescripcionPerfil" class="form-control" placeholder="Descripcion del perfil" rows="5"
                     required></textarea>
             </div>
-        </div>
-        <hr>
-        <p class="text-center">DATOS DE ESTUDIOS</p>
-        <div class="row">
-            <div class="form-group col-sm-12 mb-2">
-                <label>Certificados de Idiomas</label><a class="btn btn-primary float-right" id="clickIdioma">+</a>
-                <input type="text" name="TituloCertificadosIdiomas[]" class="form-control mb-2"
-                    placeholder="Titulo del Certificado">
-                <input type="file" name="CertificadosPDFIdiomas[]" accept="application/pdf"
-                    class="form-control mb-3">
-                <div id="Idiomas"></div>
-            </div>
-            <div class="form-group col-sm-12 mb-2">
-                <label>Certificados Academicos <span style="color: red">*</span></label><a
-                    class="btn btn-primary float-right" id="clickAcademicos">+</a>
-                <input type="text" name="TituloCertificadosAcademicos[]" class="form-control mb-2"
-                    placeholder="Titulo del Certificado" required>
-                <input type="file" name="CertificadosPDFAcademicos[]" accept="application/pdf"
-                    class="form-control mb-3" required>
-                <div id="Academicos"></div>
-            </div>
-            <div class="form-group col-sm-12 form-check">
-                <input type="checkbox" class="form-check-input" name="AceptarTerminos" value="SI">
-                <label class="form-check-label">Aceptar Políticas y procedimientos para el tratamiento de datos
-                    personales <span style="color: red">*</span></label><a href="#"> <span data-toggle="modal"
-                        data-target="#ProteccionDatos">LEER POLÍTICAS DE DATOS</span></a>
-            </div>
-
         </div>
         {!! Form::submit('Enviar Datos', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}

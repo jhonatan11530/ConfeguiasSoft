@@ -6,12 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Registro extends Model
 {
-
     protected $table = 'registro';
-    protected $primaryKey = 'id';
     protected $fillable = [
         'Nombre',
         'Apellido',
-        'TipoIdentificacion'
+        'AdjuntarFoto',
+        'TipoIdentificacion',
+        'NumeroIdentificacion',
+        'FechaExpedicion',
+        'DirreccionResidencia',
+        'Departamento',
+        'Ciudad',
+        'Celular',
+        'TelefonoFijo',
+        'TarjetaProfesional',
+        'AdjuntoTarjetaProfesional',
+        'DescripcionPerfil',
+        'NGuiaRegistro',
+        'DocumentoGuiaRegistro',
+        'Terminos',
     ];
 }
