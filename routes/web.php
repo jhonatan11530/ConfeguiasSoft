@@ -3,6 +3,7 @@
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,10 @@ Route::post('Registro/filtrar', [RegistroController::class, 'filtrar']);
 Route::middleware(['auth'])->group(function () {
     Route::get('inicio', [HomeController::class, 'index']);
 
+});
+
+Route::get('migrate ', function() {
+    Artisan::call('migrate');
 });
 
 Route::get('logout', function() {

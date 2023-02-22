@@ -58,8 +58,8 @@
             </div>
             <div class="form-group col-sm-6">
                 <label>Adjuntar foto (Formato JPG,PNG) <span style="color: red">*</span></label>
-                <input type="file" name="AdjuntarFoto" accept="image/jpeg, image/png"
-                    class="form-control mb-3" required>
+                <input type="file" name="AdjuntarFoto" accept="image/jpeg, image/png" class="form-control mb-3"
+                    required>
             </div>
             <div class="form-group col-sm-6">
                 <label>Tipo de identificacion <span style="color: red">*</span></label>
@@ -159,7 +159,8 @@
         {!! Form::close() !!}
         </form>
     </div>
-    <button class="floating"><span><a href="https://www.confeguias.com/" style="color: white">Atras</a></span></button>
+    <button class="floating"><span><a href="https://www.confeguias.com/"
+                style="color: white">Atras</a></span></button>
 
     <!---- MODAL PROTECCION DE DATOS   ---->
     <div class="modal fade" id="ProteccionDatos" tabindex="-1" aria-labelledby="exampleModalLabel"
