@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Registro;
-use App\Documentos;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,6 +13,7 @@ class RegistroController extends Controller
 {
     public function create()
     {
+        Artisan::call('storage:link');
         $Departamento = DB::select("SELECT DISTINCT departamento FROM ciudades ORDER BY departamento ASC");
         return view('formulario.index')->with('Departamento', $Departamento);
     }
@@ -48,7 +49,6 @@ class RegistroController extends Controller
             $Registro->AdjuntarFoto = $RutaAdjuntarFoto;
             $Registro->TipoIdentificacion = $request->TipoIdentificacion;
             $Registro->NumeroIdentificacion = $request->NumeroIdentificacion;
-            $Registro->DirreccionResidencia = $request->DirreccionResidencia;
             $Registro->FechaExpedicion = $request->FechaExpedicion;
             $Registro->Departamento = $request->departamento;
             $Registro->Ciudad = $request->ciudad;

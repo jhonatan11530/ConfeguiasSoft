@@ -101,15 +101,11 @@
                     <option value="" selected disabled>Seleccione...</option>
                 </select>
             </div>
-            <div class="form-group col-sm-6">
-                <label>Dirreccion de residencia <span style="color: red">*</span></label>
-                <input type="text" name="DirreccionResidencia" class="form-control mb-2" required>
-            </div>
-            <div class="form-group col-sm-6">
+            <div class="form-group col-sm-3">
                 <label>Celular <span style="color: red">*</span></label>
                 <input type="number" name="Celular" min="0" class="form-control mb-2" required>
             </div>
-            <div class="form-group col-sm-6">
+            <div class="form-group col-sm-3">
                 <label>Telefono Fijo <span style="color: red">*</span></label>
                 <input type="number" name="TelefonoFijo" min="0" class="form-control mb-2" required>
             </div>
@@ -148,11 +144,16 @@
                 <input type="file" name="DocumentoGuiaRegistro" accept="application/pdf"
                     class="form-control mb-3" required>
             </div>
-            <div id="GUIA"></div>
             <div class="form-group col-sm-12">
                 <label>Descripcion Del Perfil <span style="color: red">*</span></label>
                 <textarea name="DescripcionPerfil" class="form-control" placeholder="Descripcion del perfil" rows="5"
                     required></textarea>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" name="AceptarTerminos" value="SI">
+                <label class="form-check-label">Aceptar Políticas y procedimientos para el tratamiento de datos
+                    personales <span style="color: red">*</span></label><a href="#"> <span data-toggle="modal"
+                        data-target="#ProteccionDatos">LEER POLÍTICAS DE DATOS</span></a>
             </div>
         </div>
         {!! Form::submit('Enviar Datos', ['class' => 'btn btn-primary']) !!}
@@ -481,6 +482,7 @@
             </div>
         </div>
     </div>
+
     <!---- MODAL BIENVENIDO ---->
     <div class="modal fade" id="PresentacionModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -548,6 +550,7 @@
             </div>
         </div>
     </div>
+
     <!---- MODAL ERROR REGISTRO ---->
     <div class="modal fade" id="ErrorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -590,31 +593,6 @@
                         cursos.append(data);
                     }
                 })
-            })
-
-            $("#clickIdioma").on('click', function() {
-                var html =
-                    `
-                <label>Certificados de Idiomas</label>
-                    <input type="text" name="TituloCertificadosIdiomas[]" class="form-control mb-2" placeholder="Titulo del Certificado">
-                    <input type="file" name="CertificadosPDFIdiomas[]" accept="application/pdf" class="form-control mb-3">`;
-                $("#Idiomas").append(html);
-            })
-            $("#clickAcademicos").on('click', function() {
-                var html =
-                    `
-                <label>Certificados Academicos</label>
-                    <input type="text" name="TituloCertificadosAcademicos[]" class="form-control mb-2" placeholder="Titulo del Certificado">
-                    <input type="file" name="CertificadosPDFAcademicos[]" accept="application/pdf" class="form-control mb-3">`;
-                $("#Academicos").append(html);
-            })
-            $("#clickEstudios").on('click', function() {
-                var html =
-                    `
-                <label>Certificados De otros Estudios</label>
-                    <input type="text" name="TituloCertificadosEstudios[]" class="form-control mb-2" placeholder="Titulo del Certificado">
-                    <input type="file" name="CertificadosPDFEstudios[]" accept="application/pdf" class="form-control mb-3">`;
-                $("#Estudios").append(html);
             })
         })
     </script>

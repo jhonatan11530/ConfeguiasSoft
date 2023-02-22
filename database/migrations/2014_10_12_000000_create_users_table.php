@@ -31,7 +31,6 @@ class CreateUsersTable extends Migration
             $table->text('TipoIdentificacion')->nullable();
             $table->string('NumeroIdentificacion', 20)->nullable();
             $table->date('FechaExpedicion')->nullable();
-            $table->text('DirreccionResidencia')->nullable();
             $table->text('Departamento')->nullable();
             $table->text('Ciudad')->nullable();
             $table->text('Celular')->nullable();
@@ -42,22 +41,6 @@ class CreateUsersTable extends Migration
             $table->text('NGuiaRegistro')->nullable();
             $table->text('DocumentoGuiaRegistro')->nullable();
             $table->text('Terminos')->nullable();
-            $table->timestamps();
-        });
-
-        Schema::create('denuncia', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('NombreDenunciante', 50)->nullable();
-            $table->string('TipoDocumento', 50)->nullable();
-            $table->integer('NumeroDocumento')->nullable();
-            $table->integer('NTarjetaProfesional')->nullable();
-            $table->string('Correo', 50)->nullable();
-            $table->integer('Telefono')->nullable();
-            $table->string('TituloQueja', 50)->nullable();
-            $table->text('DescripcionQueja')->nullable();
-            $table->string('PoseePrueba', 100)->nullable();
-            $table->text('DescripcionHechos')->nullable();
-            $table->text('AdjuntarPruebas')->nullable();
             $table->timestamps();
         });
 
