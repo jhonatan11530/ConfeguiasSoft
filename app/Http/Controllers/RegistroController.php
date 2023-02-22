@@ -27,8 +27,10 @@ class RegistroController extends Controller
     public function store(Request $request)
     {
         $Result = DB::table('users')->select('name')->where('identificacion', $request->NumeroIdentificacion)->first();
+        
+        Artisan::call('storage:link');
 
-        //dd(isset($Result->name));
+        dd(isset($Result->name));
         if (isset($Result->name) == false) {
 
             $TarjetaProfesional = $request->file('AdjuntoTarjetaProfesional');
@@ -69,7 +71,7 @@ class RegistroController extends Controller
             $user->password = bcrypt($request->Contraseña);
             $user->save();
 
-            //Artisan::call('storage:link');
+
 
             toastr()->success('Los datos se han guardado con éxito!');
             return redirect()->back();
