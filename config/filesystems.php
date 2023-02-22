@@ -62,13 +62,6 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
-        ],
-
-        'file-registro' => [
-            'driver' => 'local',
-            'root' => storage_path('app/file-registro'),
-            'url' => env('APP_URL').'/file-registro',
-            'visibility' => 'public',
         ]
     ],
 
@@ -85,7 +78,6 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
-        public_path('file-registro') => storage_path('app/file-registro'),
     ],
 
 ];

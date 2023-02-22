@@ -32,16 +32,16 @@ class RegistroController extends Controller
         if (isset($Result->name) == false) {
 
             $TarjetaProfesional = $request->file('AdjuntoTarjetaProfesional');
-            $RutaTarjetaProfesional = 'storage/file-registro/' . $request->NumeroIdentificacion . '/' . $TarjetaProfesional->getClientOriginalName();
-            Storage::disk('file-registro')->putFileAs('soporte_AdjuntoTarjetaProfesional_' . $request->NumeroIdentificacion, $request->file('AdjuntoTarjetaProfesional'), $TarjetaProfesional->getClientOriginalName());
+            $RutaTarjetaProfesional = 'storage/soporte_AdjuntoTarjetaProfesional_' . $request->NumeroIdentificacion . '/' . $TarjetaProfesional->getClientOriginalName();
+            Storage::disk('public')->putFileAs('soporte_AdjuntoTarjetaProfesional_' . $request->NumeroIdentificacion, $request->file('AdjuntoTarjetaProfesional'), $TarjetaProfesional->getClientOriginalName());
 
             $GuiaRegistro = $request->file('DocumentoGuiaRegistro');
-            $RutaGuiaRegistro = 'storage/file-registro/' . $request->NumeroIdentificacion . '/' . $GuiaRegistro->getClientOriginalName();
-            Storage::disk('file-registro')->putFileAs('Soporte_DocumentoGuiaRegistro_' . $request->NumeroIdentificacion, $request->file('DocumentoGuiaRegistro'), $GuiaRegistro->getClientOriginalName());
+            $RutaGuiaRegistro = 'storage/Soporte_DocumentoGuiaRegistro_' . $request->NumeroIdentificacion . '/' . $GuiaRegistro->getClientOriginalName();
+            Storage::disk('public')->putFileAs('Soporte_DocumentoGuiaRegistro_' . $request->NumeroIdentificacion, $request->file('DocumentoGuiaRegistro'), $GuiaRegistro->getClientOriginalName());
 
             $AdjuntarFoto = $request->file('AdjuntarFoto');
-            $RutaAdjuntarFoto = 'storage/file-registro/' . $request->NumeroIdentificacion . '/' . $AdjuntarFoto->getClientOriginalName();
-            Storage::disk('file-registro')->putFileAs('soporte_AdjuntoFotoDocumento_' . $request->NumeroIdentificacion, $request->file('AdjuntarFoto'), $AdjuntarFoto->getClientOriginalName());
+            $RutaAdjuntarFoto = 'storage/soporte_AdjuntoFotoDocumento_' . $request->NumeroIdentificacion . '/' . $AdjuntarFoto->getClientOriginalName();
+            Storage::disk('public')->putFileAs('soporte_AdjuntoFotoDocumento_' . $request->NumeroIdentificacion, $request->file('AdjuntarFoto'), $AdjuntarFoto->getClientOriginalName());
 
             $Registro = new Registro();
             $Registro->Nombre = $request->Nombre;
