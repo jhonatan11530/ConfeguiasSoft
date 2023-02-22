@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-Route::get('migrate ', function() {
+Route::get('migrate', function() {
     Artisan::call('storage:link');
     Artisan::call('migrate');
 });
