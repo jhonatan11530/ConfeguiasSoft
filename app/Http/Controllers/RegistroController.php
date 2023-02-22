@@ -69,8 +69,8 @@ class RegistroController extends Controller
             $user->password = bcrypt($request->Contraseña);
             $user->save();
 
-            Artisan::call('storage:link');
-            
+            //Artisan::call('storage:link');
+
             toastr()->success('Los datos se han guardado con éxito!');
             return redirect()->back();
         } else {
