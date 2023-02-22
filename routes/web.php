@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('migrate ', function() {
-    Artisan::call('make:migration');
+    Artisan::call('migrate');
 });
 
 Route::get('logout', function() {
