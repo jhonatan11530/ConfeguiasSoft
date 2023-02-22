@@ -13,7 +13,7 @@ class RegistroController extends Controller
 {
     public function create()
     {
-        
+
         $Departamento = DB::select("SELECT DISTINCT departamento FROM ciudades ORDER BY departamento ASC");
         return view('formulario.index')->with('Departamento', $Departamento);
     }
@@ -69,6 +69,8 @@ class RegistroController extends Controller
             $user->password = bcrypt($request->Contraseña);
             $user->save();
 
+            Artisan::call('storage:link');
+            
             toastr()->success('Los datos se han guardado con éxito!');
             return redirect()->back();
         } else {
