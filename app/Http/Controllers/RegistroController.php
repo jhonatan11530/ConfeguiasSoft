@@ -27,10 +27,8 @@ class RegistroController extends Controller
     public function store(Request $request)
     {
         $Result = DB::table('users')->select('name')->where('identificacion', $request->NumeroIdentificacion)->first();
-        
-        Artisan::call('storage:link');
 
-        dd(isset($Result->name));
+        //dd(isset($Result->name));
         if (isset($Result->name) == false) {
 
             $TarjetaProfesional = $request->file('AdjuntoTarjetaProfesional');
