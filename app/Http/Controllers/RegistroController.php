@@ -13,7 +13,7 @@ class RegistroController extends Controller
 {
     public function create()
     {
-        Artisan::call('storage:link');
+        
         $Departamento = DB::select("SELECT DISTINCT departamento FROM ciudades ORDER BY departamento ASC");
         return view('formulario.index')->with('Departamento', $Departamento);
     }
