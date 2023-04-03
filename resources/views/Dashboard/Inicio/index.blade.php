@@ -37,9 +37,8 @@
                                                     Acciones
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" data-toggle="modal" data-target="#show"
-                                                        href="{{ route('pdf.show',$item->id) }}">Visualizar</a>
-                                                    <a class="dropdown-item" data-toggle="modal" data-target="#editar"
+                                                    <a class="dropdown-item" href="/pdf/{{$item->id}}">Visualizar</a>
+                                                    <a class="dropdown-item" data-toggle="modal"
                                                         href="#">Exportar</a>
                                                 </div>
                                             </div>
