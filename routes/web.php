@@ -33,7 +33,7 @@ Route::post('Registro/filtrar', [RegistroController::class, 'filtrar']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('inicio', [HomeController::class, 'index']);
-
+    Route::get('pdf/{id}', [HomeController::class, 'pdf'])->name('pdf.show');
 });
 
 Route::get('migrate', function() {
