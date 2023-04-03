@@ -41,6 +41,11 @@ Route::get('migrate', function() {
     Artisan::call('migrate');
 });
 
+Route::get('clear', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+});
+
 Route::get('logout', function() {
     Auth::logout();
     return view('login');
