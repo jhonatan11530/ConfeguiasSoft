@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Registro;
 use Illuminate\Http\Request;
-use PDF;
+use Barryvdh\DomPDF\Facade\PDF;
 class HomeController extends Controller
 {
     function index()
