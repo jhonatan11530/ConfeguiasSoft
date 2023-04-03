@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Registro;
 use Illuminate\Http\Request;
-use \PDF;
 class HomeController extends Controller
 {
     function index()
@@ -16,7 +15,7 @@ class HomeController extends Controller
     {
         $Registro = Registro::find($id);
 
-        $pdf = PDF::loadView('Dashboard.PlantillaPDF.plantilla',compact('Registro'));
+        $pdf = \PDF::loadView('Dashboard.PlantillaPDF.plantilla',compact('Registro'));
         return $pdf->stream();
     }
 }
