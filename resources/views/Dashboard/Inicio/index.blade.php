@@ -37,8 +37,8 @@
                                                     Acciones
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="/pdf/{{$item->id}}">Visualizar</a>
-                                                    <a class="dropdown-item" data-toggle="modal"
+                                                    <a class="dropdown-item" href="/pdf/{{$item->id}}" target="_blank">Visualizar</a>
+                                                    <a class="dropdown-item"
                                                         href="#">Exportar</a>
                                                 </div>
                                             </div>

@@ -163,12 +163,13 @@
                 <div class="sidebar-content">
                     <div class="user">
                         <div class="avatar-sm float-left mr-2">
-                            <img src="" alt="avatar" class="avatar-img rounded-circle">
+                            <img src="{{ asset('img/avatar_default.png') }}" alt="avatar" class="avatar-img rounded-circle">
                         </div>
                         <div class="info">
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                                 <span>
                                     <span>{{ auth()->user()->name }}</span>
+                                    <span>{{ auth()->user()->email }}</span>
                                     <span class="caret"></span>
                                 </span>
                             </a>

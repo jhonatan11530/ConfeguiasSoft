@@ -9,9 +9,6 @@
 </head>
 
 <body>
-    @php
-        //var_dump($Registro->all());
-    @endphp
     <div class="cv">
         <h1>HOJA DE VIDA</h1>
     </div>
