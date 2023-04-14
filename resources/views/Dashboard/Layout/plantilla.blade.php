@@ -197,47 +197,10 @@
                     <!-- Sub Menu -->
                     <ul class="nav nav-primary">
                         <li class="nav-item active">
-                            <a href="{{ url('/') }}">
+                            <a href="{{ url('/inicio') }}">
                                 <i class="fas fa-home"></i>
                                 <p>Dashboard</p>
                             </a>
-                        </li>
-                        <li class="nav-section">
-                            <span class="sidebar-mini-icon">
-                                <i class="fa fa-ellipsis-h"></i>
-                            </span>
-                            <h4 class="text-section">Componentes</h4>
-                        </li>
-                        <li class="nav-item">
-                            <a data-toggle="collapse" href="#catalogo">
-                                <i class="fas fa-box"></i>
-                                <p>Visualizar</p>
-                                <span class="caret"></span>
-                            </a>
-                            <div class="collapse" id="catalogo">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="{{ url('productos') }}">
-                                            <span class="sub-item">Productos</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('categoria') }}">
-                                            <span class="sub-item">Categorias</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('etiqueta') }}">
-                                            <span class="sub-item">Etiquetas</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('fabricante') }}">
-                                            <span class="sub-item">Fabricante</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                     </ul>
                     <!-- End Sub Menu -->
