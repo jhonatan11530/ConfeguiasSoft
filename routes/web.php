@@ -22,6 +22,9 @@ Route::get('/', function () {
     return view("index");
 });
 
+Route::get('migrate', function () {
+    Artisan::call('storage:link');
+});
 
 Route::get('/RegistroTurista', [RegistroController::class, 'create']);
 Route::get('/login', [LoginController::class, 'index']);
@@ -31,10 +34,12 @@ Route::post('validar', 'LoginController@validar');
 Route::post('Registro', [RegistroController::class, 'store']);
 Route::post('Registro/filtrar', [RegistroController::class, 'filtrar']);
 
+Route::get('pdf/{id}', [HomeController::class, 'pdf']);
+
 Route::middleware(['auth'])->group(function () {
     Route::get('inicio', [HomeController::class, 'index']);
-    Route::get('pdf/{id}', [HomeController::class, 'pdf']);
 });
+
 
 Route::get('migrate', function() {
     Artisan::call('storage:link');
