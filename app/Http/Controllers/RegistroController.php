@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailRegistroCorrecto;
 use App\Registro;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class RegistroController extends Controller
@@ -70,6 +72,8 @@ class RegistroController extends Controller
             $user->save();
 
 
+            $data ="SEÑOR USUARIO USTED SE ACABA DE REGISTRAR CORRECTAMENTE EN CONFIGUIAS";
+            Mail::to($request->Correo)->send(new MailRegistroCorrecto($data));
 
             toastr()->success('Los datos se han guardado con éxito!');
             return redirect()->back();

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class DenunciaReceived extends Mailable
+class MailRegistroCorrecto extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,6 +30,6 @@ class DenunciaReceived extends Mailable
      */
     public function build()
     {
-        return $this->view('Mail.denuncia');
+        return $this->view('Mail.RegistroExistoso');
     }
 }

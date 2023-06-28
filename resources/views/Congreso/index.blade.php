@@ -100,12 +100,43 @@
             </div>
             <div class="col-sm-6">
                 <h5>¿Es guía agremiado?</h5>
-                <input type="radio" name="opcion" value="Si" id="opcionSi" onclick="mostrarCampoTexto()">Sí<br>
-                <input type="radio" name="opcion" value="No"  id="opcionNo" onclick="mostrarCampoTexto()">No<br><br>
+                <input type="radio" name="opcion" value="Si" id="opcionSi" onclick="mostrarCampoTexto()">Sí
+                <input type="radio" name="opcion" value="No" id="opcionNo" onclick="mostrarCampoTexto()">No
                 <div id="campoTexto" style="display: none;">
                     <label for="texto">por favor indique el nombre de la asociación a la que pertenece.</label> <span
                         style="color: red">*</span>
-                    {!! Form::text('asociacion', null, ['class' => 'form-control']) !!}
+                    <select name="asociacion" class="form-control">
+                        <option value="" selected disabled>Seleccione una opcion</option>
+                        <option value="Asociación de Guías de Turismo de Antioquia - ASOGUIAN">Asociación de Guías de
+                            Turismo de Antioquia - ASOGUIAN</option>
+                        <option value="Asociación de Guías de Turismo de Bogotá y Cundinamarca">Asociación de Guías de
+                            Turismo de Bogotá y Cundinamarca</option>
+                        <option value="Asociación de Guías de Turismo de Nariño - GUIASSUR">Asociación de Guías de
+                            Turismo de Nariño - GUIASSUR</option>
+                        <option
+                            value="Asociación de Guías Profesionales de Barranquilla y el Departamento del Atlántico">
+                            Asociación de Guías Profesionales de Barranquilla y el Departamento del Atlántico</option>
+                        <option value="Asociación de Guías del Tolima - ASGUITOL">Asociación de Guías del Tolima -
+                            ASGUITOL</option>
+                        <option value="Asociación de Guías de Turismo del Valle del Cauca – ASOGUIAS VALLE">Asociación
+                            de Guías de Turismo del Valle del Cauca – ASOGUIAS VALLE</option>
+                        <option value="Asociación Caldense de Guías De Turismo - ASDEGUIAS CALDAS">Asociación Caldense
+                            de Guías De Turismo - ASDEGUIAS CALDAS</option>
+                        <option value="Asociación de Guías de Turismo Profesionales de Boyacá - AGTPB">Asociación de
+                            Guías de Turismo Profesionales de Boyacá - AGTPB</option>
+                        <option value="Asociación Guías Profesionales de Turismo de Colombia - Capitulo Tolima">
+                            Asociación Guías Profesionales de Turismo de Colombia - Capitulo Tolima</option>
+                        <option value="Asociación de Guías de Turismo Andino Amazónicos - ASOANDINOAMAZONICOS">
+                            Asociación de Guías de Turismo Andino Amazónicos - ASOANDINOAMAZONICOS</option>
+                        <option value="Asociación de Guía Profesionales de Turismo de Colombia-ASPROGUIAS">Asociación de
+                            Guía Profesionales de Turismo de Colombia-ASPROGUIAS</option>
+                        <option value="Asociación de Guías de Turismo de Boyacá - ASDEGUIAS BOYACÁ">Asociación de Guías
+                            de Turismo de Boyacá - ASDEGUIAS BOYACÁ</option>
+                        <option value="Asociación de Guias de Turismo del Sur de Colombia GUIASURCOL">Asociación de
+                            Guias de Turismo del Sur de Colombia GUIASURCOL</option>
+                        <option value="Asociación de Guías Bilingües de Santa Marta - AGB">Asociación de Guías Bilingües
+                            de Santa Marta - AGB</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -114,7 +145,34 @@
         </form>
     </div>
     <button class="floating"><span><a href="https://www.confeguias.com/" style="color: white">Atras</a></span></button>
+
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Apreciado colega agremiado</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        onclick="cerrarModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Es de suma importancia que haga su registro en la página web de Confeguias para que podamos tener completo el Directorio Nacional de Guías de Turismo profesionales. Te invitamos a registrarte, y luego hacer tu pre-registro al Congreso.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="cerrarModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        function cerrarModal() {
+            window.location.href = "https://www.confeguias.com/";
+        }
+
         function mostrarCampoTexto() {
             var campoTexto = document.getElementById("campoTexto");
             var radioOpcion = document.getElementById("opcionSi");
@@ -123,6 +181,7 @@
                 campoTexto.style.display = "block"; // Mostrar el campo de entrada
             } else {
                 campoTexto.style.display = "none"; // Ocultar el campo de entrada
+                $('#staticBackdrop').modal('show')
             }
         }
     </script>

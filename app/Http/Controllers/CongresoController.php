@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailRegistroCorrecto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+
 class CongresoController extends Controller
 {
     public function index()
@@ -40,7 +43,8 @@ class CongresoController extends Controller
             ]);
 
         }
-
+        $data ="SEÑOR USUARIO USTED SE ACABA DE REGISTRAR CORRECTAMENTE EN CONFIGUIAS";
+        Mail::to($request->Correo)->send(new MailRegistroCorrecto($data));
 
         return redirect('https://www.confeguias.com/');
     }
