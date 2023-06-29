@@ -24,28 +24,20 @@ class CongresoController extends Controller
                 'Tipo' => $request->Tipo,
                 'Correo' => $request->Correo,
                 'opcion' => $request->opcion,
-                'asociacion' => ($request->asociacion)? $request->asociacion: null ,
+                'asociacion' => $request->asociacion,
                 'created_at' => new \Datetime(),
                 'updated_at' => new \Datetime(),
             ]);
 
+            Mail::to($request->Correo)->send(new MailRegistroCorrecto());
+
+            return redirect('https://www.confeguias.com/');
         } else {
-
-            DB::table('congreso')->insert([
-                'Nombre' => $request->Nombre,
-                'Apellido' => $request->Apellido,
-                'Tipo' => $request->Tipo,
-                'Correo' => $request->Correo,
-                'opcion' => $request->opcion,
-                'asociacion' => ($request->asociacion)? $request->asociacion: null ,
-                'created_at' => new \Datetime(),
-                'updated_at' => new \Datetime(),
-            ]);
-
+            toastr()->error('Por favor seleccione si es agremiado !');
+            return redirect()->back();
         }
-        $data ="SEÑOR USUARIO USTED SE ACABA DE REGISTRAR CORRECTAMENTE EN CONFIGUIAS";
-        Mail::to($request->Correo)->send(new MailRegistroCorrecto($data));
 
-        return redirect('https://www.confeguias.com/');
+
+
     }
 }

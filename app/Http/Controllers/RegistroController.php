@@ -30,7 +30,6 @@ class RegistroController extends Controller
     {
         $Result = DB::table('users')->select('name')->where('identificacion', $request->NumeroIdentificacion)->first();
 
-        //dd(isset($Result->name));
         if (isset($Result->name) == false) {
 
             $TarjetaProfesional = $request->file('AdjuntoTarjetaProfesional');
@@ -71,9 +70,7 @@ class RegistroController extends Controller
             $user->password = bcrypt($request->Contraseña);
             $user->save();
 
-
-            $data ="SEÑOR USUARIO USTED SE ACABA DE REGISTRAR CORRECTAMENTE EN CONFIGUIAS";
-            Mail::to($request->Correo)->send(new MailRegistroCorrecto($data));
+            Mail::to($request->Correo)->send(new MailRegistroCorrecto());
 
             toastr()->success('Los datos se han guardado con éxito!');
             return redirect()->back();

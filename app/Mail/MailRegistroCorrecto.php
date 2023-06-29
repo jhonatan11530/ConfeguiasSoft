@@ -11,16 +11,15 @@ class MailRegistroCorrecto extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = 'Mensaje Recibido';
-    public $mensaje;
+    public $subject = 'Registro en Confeguias';
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($mensaje)
+    public function __construct()
     {
-        $this->mensaje = $mensaje;
+
     }
 
     /**

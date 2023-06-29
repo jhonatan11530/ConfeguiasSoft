@@ -57,9 +57,14 @@
                 <input type="text" name="Apellido" placeholder="Apellido" class="form-control mb-2" required>
             </div>
             <div class="form-group col-sm-6">
-                <label>Adjuntar foto (Formato JPG,PNG) <span style="color: red">*</span></label>
-                <input type="file" name="AdjuntarFoto" accept="image/jpeg, image/png" class="form-control mb-3"
-                    required>
+                <label>Adjuntar foto (Formato JPG,PNG) <span style="color: red">*</span>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#SubirFoto"
+                        onclick="FotoPersonal()">
+                        Como subir Foto
+                    </button>
+                </label>
+                <input type="file" name="AdjuntarFoto" id="fileInput" accept="image/jpeg, image/png"
+                    class="form-control mb-3" required disabled>
             </div>
             <div class="form-group col-sm-6">
                 <label>Tipo de identificacion <span style="color: red">*</span></label>
@@ -626,7 +631,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Desde CONFEGUIAS te invitamos a agremiarte, trabajando juntos haremos de nuestra profesión un actor fuerte y propositivo de la cadena de valor del turismo en nuestro País
+                    Desde CONFEGUIAS te invitamos a agremiarte, trabajando juntos haremos de nuestra profesión un actor
+                    fuerte y propositivo de la cadena de valor del turismo en nuestro País
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
@@ -636,7 +642,45 @@
         </div>
     </div>
 
+    <!-- Como subir una foto -->
+    <div class="modal fade" id="SubirFoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">COMO DEBE SUBIR LA FOTO AL SISTEMA</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <h6>ejemplo fotogratico de ejemplo</h6>
+                    <img src="https://img.freepik.com/vector-premium/conjunto-retrato-rostro-hombre-tres-angulos-diferentes-vueltas-cabeza-masculina-dibujo-linea-vector-primer-plano-vista-frontal-diferente-perfil-tres-cuartos-nino_77430-341.jpg?w=2000"
+                        alt="" height="200" width="200">
+                    <h4>Debe subir Una fotografía con las siguientes características obligatorias</h4>
+                    <ul style="list-style: none;">
+                        <li>Fotografía reciente.</li>
+                        <li>Fotografía en archivo digital a color.</li>
+                        <li>Tamaño digital Posición vertical (No se aceptan fotografías
+                            tomadas con celular, ni escaneadas).</li>
+                        <li>La distancia entre la cabeza y el borde superior de la fotografía deber ser de 1cm</li>
+                        <li>Silueteado fondo blanco.</li>
+                        <li>La imagen debe estar perfectamente centrada.</li>
+                        <li>La persona debe ir completamente de frente mirando directamente hacia la cámara</li>
+                        <li>Excelente presentación personal.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
+        function FotoPersonal() {
+            document.getElementById('fileInput').disabled = false;
+        }
+
         function cerrarModal() {
             window.location.href = "https://www.confeguias.com/";
         }
@@ -657,6 +701,7 @@
             location.reload();
         }
         $(document).ready(function() {
+
             //$("#PresentacionModal").modal("show");
             $('select#depart').change(function() {
                 $("#ciudad").children().remove();
