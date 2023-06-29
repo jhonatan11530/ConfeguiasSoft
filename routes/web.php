@@ -27,6 +27,10 @@ Route::get('migrate', function () {
     Artisan::call('storage:link');
 });
 
+Route::get('clear', function () {
+    Artisan::call('optimize');
+});
+
 Route::get('/RegistroCongreso',[CongresoController::class, 'index']);
 Route::post('Congreso', [CongresoController::class, 'store']);
 
