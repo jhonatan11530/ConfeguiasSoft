@@ -23,13 +23,6 @@ Route::get('/', function () {
     return view("index");
 });
 
-Route::get('migrate', function () {
-    Artisan::call('storage:link');
-});
-
-Route::get('clear', function () {
-    Artisan::call('optimize');
-});
 
 Route::get('/RegistroCongreso',[CongresoController::class, 'index']);
 Route::post('Congreso', [CongresoController::class, 'store']);
@@ -55,11 +48,10 @@ Route::get('migrate', function() {
 });
 
 Route::get('clear', function() {
-    Artisan::call('cache:clear');
-    Artisan::call('config:cache');
+    Artisan::call('optimize');
 });
 
 Route::get('logout', function() {
     Auth::logout();
-    return view('login');
+    return redirect('login');
 });
