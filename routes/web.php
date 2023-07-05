@@ -30,10 +30,12 @@ Route::post('Congreso', [CongresoController::class, 'store']);
 Route::get('/RegistroTurista', [RegistroController::class, 'create']);
 Route::get('/login', [LoginController::class, 'index']);
 
-Route::post('validar', 'LoginController@validar');
+Route::post('validar', [LoginController::class, 'validar']);
 
 Route::post('Registro', [RegistroController::class, 'store']);
 Route::post('Registro/filtrar', [RegistroController::class, 'filtrar']);
+
+Route::post('Congreso/ajax/{id}', [CongresoController::class, 'ajax'])->name('congreso.ajax');
 
 Route::get('pdf/{id}', [HomeController::class, 'pdf']);
 

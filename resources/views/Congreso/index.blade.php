@@ -84,15 +84,15 @@
             </div>
             <div class="col-sm-6">
                 <label>Numero de documento de identificación</label> <span style="color: red">*</span>
-                {!! Form::number('Correo', null, ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                {!! Form::number('Tipo', null, ['class' => 'form-control', 'min' => '0', 'required']) !!}
             </div>
             <div class="col-sm-6">
                 <label>Número de RNT</label> <span style="color: red">*</span>
-                {!! Form::number('Correo', null, ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                {!! Form::number('RNT', null, ['class' => 'form-control', 'min' => '0', 'required']) !!}
             </div>
             <div class="col-sm-6">
                 <label>Celular</label> <span style="color: red">*</span>
-                {!! Form::number('Correo', null, ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                {!! Form::number('Celular', null, ['class' => 'form-control', 'min' => '0', 'required']) !!}
             </div>
             <div class="col-sm-6">
                 <label>Correo electrónico</label> <span style="color: red">*</span>
@@ -105,7 +105,7 @@
                 <div id="campoTexto" style="display: none;">
                     <label for="texto">por favor indique el nombre de la asociación a la que pertenece.</label> <span
                         style="color: red">*</span>
-                    <select name="asociacion" class="form-control">
+                    <select name="asociacion" id="asociacion" class="form-control">
                         <option value="" selected disabled>Seleccione una opcion</option>
                         <option value="Asociación de Guías de Turismo de Antioquia - ASOGUIAN">Asociación de Guías de
                             Turismo de Antioquia - ASOGUIAN</option>
@@ -158,7 +158,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Es de suma importancia que haga su registro en la página web de Confeguias para que podamos tener completo el Directorio Nacional de Guías de Turismo profesionales. Te invitamos a registrarte, y luego hacer tu pre-registro al Congreso.
+                    Es de suma importancia que haga su registro en la página web de Confeguias para que podamos tener
+                    completo el Directorio Nacional de Guías de Turismo profesionales. Te invitamos a registrarte, y
+                    luego hacer tu pre-registro al Congreso.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
@@ -169,6 +171,28 @@
     </div>
 
     <script>
+        $('#asociacion').change(function(e) {
+            e.preventDefault();
+            var numero = $('input[name=Tipo]').val();
+            $.ajax({
+                type: "POST",
+                url: "{{ route('congreso.ajax', ['id' => ':identificacion']) }}".replace(
+                    ':identificacion',
+                    numero),
+                data: {
+                    _token: $('input[name="_token"]').val(),
+                },
+                success: function(response) {
+                    if (response==0) {
+                        $('#staticBackdrop').modal('show')
+                    }else{
+
+                    }
+                }
+            });
+        });
+
+
         function cerrarModal() {
             window.location.href = "https://www.confeguias.com/";
         }
