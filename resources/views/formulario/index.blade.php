@@ -131,13 +131,16 @@
         <hr>
         <p class="text-center">DATOS PROFESIONALES</p>
         <div class="row">
-            <div class="col-sm-6">
-                <h5>¿Es guía agremiado?</h5>
+            <div class="form-group col-sm-2">
+                <label>¿Es guía agremiado?</label>
                 <input type="radio" name="opcion" value="Si" id="opcionSi" onclick="mostrarCampoTexto()">Sí
                 <input type="radio" name="opcion" value="No" id="opcionNo" onclick="mostrarCampoTexto()">No
+
+            </div>
+            <div class="form-group col-sm-4">
                 <div id="campoTexto" style="display: none;">
-                    <label for="texto">por favor indique el nombre de la asociación a la que pertenece.</label>
-                    <span style="color: red">*</span>
+                    <label for="texto">Por favor, indique el nombre de la asociación a la que usted pertenece <span
+                            style="color: red">*</span></label>
                     <select name="asociacion" class="form-control">
                         <option value="" selected disabled>Seleccione una opcion</option>
                         <option value="Asociación de Guías de Turismo de Antioquia - ASOGUIAN">Asociación de Guías de

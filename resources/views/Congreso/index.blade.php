@@ -48,15 +48,15 @@
             height="200px" alt="image not found">
         <p class="text-center">DATOS PERSONALES</p>
         <div class="row mb-3">
-            <div class="col-sm-6">
+            <div class="form-group col-sm-6">
                 <label>Nombre</label> <span style="color: red">*</span>
                 {!! Form::text('Nombre', null, ['class' => 'form-control', 'required']) !!}
             </div>
-            <div class="col-sm-6">
+            <div class="form-group col-sm-6">
                 <label>Apellido</label> <span style="color: red">*</span>
                 {!! Form::text('Apellido', null, ['class' => 'form-control', 'required']) !!}
             </div>
-            <div class="col-sm-6">
+            <div class="form-group col-sm-6">
                 <label>Tipo de identificación</label> <span style="color: red">*</span>
                 {!! Form::select(
                     'Tipo',
@@ -82,29 +82,32 @@
                     ['class' => 'form-control', 'required'],
                 ) !!}
             </div>
-            <div class="col-sm-6">
+            <div class="form-group col-sm-6">
                 <label>Numero de documento de identificación</label> <span style="color: red">*</span>
                 {!! Form::number('Tipo', null, ['class' => 'form-control', 'min' => '0', 'required']) !!}
             </div>
-            <div class="col-sm-6">
+            <div class="form-group col-sm-6">
                 <label>Número de RNT</label> <span style="color: red">*</span>
                 {!! Form::number('RNT', null, ['class' => 'form-control', 'min' => '0', 'required']) !!}
             </div>
-            <div class="col-sm-6">
+            <div class="form-group col-sm-6">
                 <label>Celular</label> <span style="color: red">*</span>
                 {!! Form::number('Celular', null, ['class' => 'form-control', 'min' => '0', 'required']) !!}
             </div>
-            <div class="col-sm-6">
+            <div class="form-group col-sm-6">
                 <label>Correo electrónico</label> <span style="color: red">*</span>
                 {!! Form::email('Correo', null, ['class' => 'form-control', 'required']) !!}
             </div>
-            <div class="col-sm-6">
-                <h5>¿Es guía agremiado?</h5>
+            <div class="form-group col-sm-2">
+                <label>¿Es guía agremiado?</label>
                 <input type="radio" name="opcion" value="Si" id="opcionSi" onclick="mostrarCampoTexto()">Sí
                 <input type="radio" name="opcion" value="No" id="opcionNo" onclick="mostrarCampoTexto()">No
+
+            </div>
+            <div class="form-group col-sm-4">
                 <div id="campoTexto" style="display: none;">
-                    <label for="texto">por favor indique el nombre de la asociación a la que pertenece.</label> <span
-                        style="color: red">*</span>
+                    <label for="texto">Por favor, indique el nombre de la asociación a la que usted pertenece <span
+                            style="color: red">*</span></label>
                     <select name="asociacion" id="asociacion" class="form-control">
                         <option value="" selected disabled>Seleccione una opcion</option>
                         <option value="Asociación de Guías de Turismo de Antioquia - ASOGUIAN">Asociación de Guías de
@@ -146,25 +149,27 @@
     </div>
     <button class="floating"><span><a href="https://www.confeguias.com/" style="color: white">Atras</a></span></button>
 
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!--- MODAL NO EXISTE USUARIO---->
+    <div class="modal fade" id="ModalError" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="ModalErrorLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Apreciado colega agremiado</h5>
+                    <h5 class="modal-title" id="ModalErrorLabel">Apreciado colega agremiado</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                         onclick="cerrarModal()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Es de suma importancia que haga su registro en la página web de Confeguias para que podamos tener
-                    completo el Directorio Nacional de Guías de Turismo profesionales. Te invitamos a registrarte, y
-                    luego hacer tu pre-registro al Congreso.
+                    Es crucial que completes tu registro en la página web de Confeguias para que podamos contar con un
+                    Directorio Nacional completo de Guías de Turismo profesionales. Te invitamos de manera entusiasta a
+                    registrarte y posteriormente realizar tu pre-registro para el Congreso. Tu participación es
+                    fundamental para el éxito de esta iniciativa.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        onclick="cerrarModal()">Close</button>
+                        onclick="cerrarModal()">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -183,18 +188,23 @@
                     _token: $('input[name="_token"]').val(),
                 },
                 success: function(response) {
-                    if (response==0) {
-                        $('#staticBackdrop').modal('show')
-                    }else{
-
+                    if (response == 0) {
+                        $('#ModalError').modal('show')
+                    } else {
+                        alert(
+                            'Estimado usuario,\nLe informamos que está registrado en nuestra base de datos.'
+                        )
                     }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert('Estimado usuario,\ntodos los campos son obligatorios')
                 }
             });
         });
 
 
         function cerrarModal() {
-            window.location.href = "https://www.confeguias.com/";
+            window.location.href = '/RegistroTurista';
         }
 
         function mostrarCampoTexto() {
@@ -205,7 +215,7 @@
                 campoTexto.style.display = "block"; // Mostrar el campo de entrada
             } else {
                 campoTexto.style.display = "none"; // Ocultar el campo de entrada
-                $('#staticBackdrop').modal('show')
+                $('#ModalError').modal('show')
             }
         }
     </script>
