@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\MailRegistroCorrecto;
+use App\Mail\MailRegistroGuia;
 use App\Registro;
 use App\User;
 use Illuminate\Http\Request;
@@ -70,7 +70,7 @@ class RegistroController extends Controller
             $user->password = bcrypt($request->Contraseña);
             $user->save();
 
-            Mail::to($request->Correo)->send(new MailRegistroCorrecto());
+            Mail::to($request->Correo)->send(new MailRegistroGuia());
 
             toastr()->success('Los datos se han guardado con éxito!');
             return redirect()->back();

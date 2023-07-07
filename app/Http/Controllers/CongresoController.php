@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\MailRegistroCorrecto;
+use App\Mail\MailRegistroCongreso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -31,7 +31,7 @@ class CongresoController extends Controller
                 'updated_at' => new \Datetime(),
             ]);
 
-            Mail::to($request->Correo)->send(new MailRegistroCorrecto());
+            Mail::to($request->Correo)->send(new MailRegistroCongreso());
 
             toastr()->success('Los datos se han guardado con éxito!');
             return redirect()->back();

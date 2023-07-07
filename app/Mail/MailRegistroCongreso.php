@@ -7,11 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MailRegistroCorrecto extends Mailable
+class MailRegistroCongreso extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $subject = 'Registro en Confeguias';
+    public $subject = 'Registro en el congreso de Confeguias';
     /**
      * Create a new message instance.
      *
@@ -19,7 +18,7 @@ class MailRegistroCorrecto extends Mailable
      */
     public function __construct()
     {
-
+        //
     }
 
     /**
@@ -29,6 +28,6 @@ class MailRegistroCorrecto extends Mailable
      */
     public function build()
     {
-        return $this->view('Mail.RegistroExistoso');
+        return $this->view('Mail.RegistroCongreso');
     }
 }
