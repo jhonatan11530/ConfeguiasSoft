@@ -26,26 +26,28 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($RegistroUsuario as $item)
-                                    <tr>
-                                        <td>{{$item->id}}</td>
-                                        <td>{{$item->NumeroIdentificacion}}</td>
-                                        <td>{{$item->Nombre}} {{$item->Apellido}}</td>
-                                        <td>{{$item->Departamento}} - {{$item->Ciudad}}</td>
+                                        @if (auth()->user()->id == $item->id)
+                                            <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->NumeroIdentificacion }}</td>
+                                                <td>{{ $item->Nombre }} {{ $item->Apellido }}</td>
+                                                <td>{{ $item->Departamento }} - {{ $item->Ciudad }}</td>
 
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                                    data-toggle="dropdown" aria-expanded="false">
-                                                    Acciones
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="/pdf/{{$item->id}}" target="_blank">Visualizar</a>
-                                                    <a class="dropdown-item"
-                                                        href="#">Exportar</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-primary dropdown-toggle"
+                                                            data-toggle="dropdown" aria-expanded="false">
+                                                            Acciones
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="/pdf/{{ $item->id }}"
+                                                                target="_blank">Visualizar</a>
+                                                            <a class="dropdown-item" href="#">Exportar</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>
