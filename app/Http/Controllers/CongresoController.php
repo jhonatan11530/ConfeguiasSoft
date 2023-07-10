@@ -38,7 +38,23 @@ class CongresoController extends Controller
             toastr()->success('Los datos se han guardado con éxito!');
             return redirect()->back();
         } else {
-            toastr()->error('Por favor seleccione si es agremiado !');
+
+            DB::table('congreso')->insert([
+                'Nombre' => $request->Nombre,
+                'Apellido' => $request->Apellido,
+                'Tipo' => $request->Tipo,
+                'Correo' => $request->Correo,
+                'RNT' => $request->RNT,
+                'Celular' => $request->Celular,
+                'opcion' => $request->opcion,
+                'asociacion' => $request->asociacion,
+                'created_at' => new \Datetime(),
+                'updated_at' => new \Datetime(),
+            ]);
+
+            Mail::to($request->Correo)->send(new MailRegistroCongreso());
+            
+            toastr()->success('Los datos se han guardado con éxito!');
             return redirect()->back();
         }
     }
