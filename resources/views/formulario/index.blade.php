@@ -143,35 +143,9 @@
                             style="color: red">*</span></label>
                     <select name="asociacion" class="form-control">
                         <option value="" selected disabled>Seleccione una opcion</option>
-                        <option value="Asociación de Guías de Turismo de Antioquia - ASOGUIAN">Asociación de Guías de
-                            Turismo de Antioquia - ASOGUIAN</option>
-                        <option value="Asociación de Guías de Turismo de Bogotá y Cundinamarca">Asociación de Guías de
-                            Turismo de Bogotá y Cundinamarca</option>
-                        <option value="Asociación de Guías de Turismo de Nariño - GUIASSUR">Asociación de Guías de
-                            Turismo de Nariño - GUIASSUR</option>
-                        <option
-                            value="Asociación de Guías Profesionales de Barranquilla y el Departamento del Atlántico">
-                            Asociación de Guías Profesionales de Barranquilla y el Departamento del Atlántico</option>
-                        <option value="Asociación de Guías del Tolima - ASGUITOL">Asociación de Guías del Tolima -
-                            ASGUITOL</option>
-                        <option value="Asociación de Guías de Turismo del Valle del Cauca – ASOGUIAS VALLE">Asociación
-                            de Guías de Turismo del Valle del Cauca – ASOGUIAS VALLE</option>
-                        <option value="Asociación Caldense de Guías De Turismo - ASDEGUIAS CALDAS">Asociación Caldense
-                            de Guías De Turismo - ASDEGUIAS CALDAS</option>
-                        <option value="Asociación de Guías de Turismo Profesionales de Boyacá - AGTPB">Asociación de
-                            Guías de Turismo Profesionales de Boyacá - AGTPB</option>
-                        <option value="Asociación Guías Profesionales de Turismo de Colombia - Capitulo Tolima">
-                            Asociación Guías Profesionales de Turismo de Colombia - Capitulo Tolima</option>
-                        <option value="Asociación de Guías de Turismo Andino Amazónicos - ASOANDINOAMAZONICOS">
-                            Asociación de Guías de Turismo Andino Amazónicos - ASOANDINOAMAZONICOS</option>
-                        <option value="Asociación de Guía Profesionales de Turismo de Colombia-ASPROGUIAS">Asociación
-                            de Guía Profesionales de Turismo de Colombia-ASPROGUIAS</option>
-                        <option value="Asociación de Guías de Turismo de Boyacá - ASDEGUIAS BOYACÁ">Asociación de Guías
-                            de Turismo de Boyacá - ASDEGUIAS BOYACÁ</option>
-                        <option value="Asociación de Guias de Turismo del Sur de Colombia GUIASURCOL">Asociación de
-                            Guias de Turismo del Sur de Colombia GUIASURCOL</option>
-                        <option value="Asociación de Guías Bilingües de Santa Marta - AGB">Asociación de Guías
-                            Bilingües de Santa Marta - AGB</option>
+                        @foreach ($Gremio as $gremio)
+                            <option value="{{ $gremio->asociaciones }}">{{ $gremio->asociaciones }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

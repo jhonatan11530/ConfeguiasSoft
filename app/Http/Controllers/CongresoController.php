@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\gremios;
 use App\Mail\MailRegistroCongreso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,7 +12,8 @@ class CongresoController extends Controller
 {
     public function index()
     {
-        return view('Congreso.index');
+        $Gremio = gremios::all();
+        return view('Congreso.index', compact('Gremio'));
     }
 
     public function store(Request $request)
@@ -47,5 +49,4 @@ class CongresoController extends Controller
 
         return ($dato) ? $dato->id : 0;
     }
-
 }

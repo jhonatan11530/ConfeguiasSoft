@@ -17,9 +17,10 @@
                                 <thead class="bg-primary text-white">
                                     <tr>
                                         <th>id</th>
+                                        <th>Numero Identificacion</th>
                                         <th>Nombre Completo</th>
                                         <th>Ubicacion</th>
-                                        <th>Numero Identificacion</th>
+
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -27,9 +28,10 @@
                                     @foreach ($RegistroUsuario as $item)
                                     <tr>
                                         <td>{{$item->id}}</td>
+                                        <td>{{$item->NumeroIdentificacion}}</td>
                                         <td>{{$item->Nombre}} {{$item->Apellido}}</td>
                                         <td>{{$item->Departamento}} - {{$item->Ciudad}}</td>
-                                        <td>{{$item->NumeroIdentificacion}}</td>
+
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-primary dropdown-toggle"

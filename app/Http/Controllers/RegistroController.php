@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\gremios;
 use App\Mail\MailRegistroGuia;
 use App\Registro;
 use App\User;
@@ -15,9 +16,9 @@ class RegistroController extends Controller
 {
     public function create()
     {
-
+        $Gremio = gremios::all();
         $Departamento = DB::select("SELECT DISTINCT departamento FROM ciudades ORDER BY departamento ASC");
-        return view('formulario.index')->with('Departamento', $Departamento);
+        return view('formulario.index', compact('Departamento', 'Gremio'));
     }
 
     /**
