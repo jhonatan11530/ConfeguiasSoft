@@ -288,6 +288,21 @@
                 ]
             });
         });
+        $('select#depart').change(function() {
+            $("#ciudad").children().remove();
+            var cursos = $("#ciudad");
+            $.ajax({
+                url: '/Registro/filtrar',
+                type: 'post',
+                data: {
+                    _token: $('input[name="_token"]').val(),
+                    departamento: $("#depart").val()
+                },
+                success: function(data) {
+                    cursos.append(data);
+                }
+            })
+        });
     </script>
     @stack('scripts')
 </body>

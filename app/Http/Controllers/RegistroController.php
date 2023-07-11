@@ -110,9 +110,11 @@ class RegistroController extends Controller
      * @param  \App\Registro  $registro
      * @return \Illuminate\Http\Response
      */
-    public function edit(Registro $registro)
+    public function edit($id)
     {
-        //
+        $Departamento = DB::select("SELECT DISTINCT departamento FROM ciudades ORDER BY departamento ASC");
+        $Registro = Registro::find($id);
+        return view('Dashboard.Inicio.edit', compact('Registro', 'Departamento'));
     }
 
     /**
@@ -122,9 +124,37 @@ class RegistroController extends Controller
      * @param  \App\Registro  $registro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Registro $registro)
+    public function update(Request $request, $id)
     {
-        //
+       // dd($request->all());
+
+        $TarjetaProfesional = $request->file('TarjetaProfesional');
+        $RutaTarjetaProfesional = 'storage/soporte_AdjuntoTarjetaProfesional_' . $request->NumeroIdentificacion . '/' . $TarjetaProfesional->getClientOriginalName();
+        Storage::disk('public')->putFileAs('soporte_AdjuntoTarjetaProfesional_' . $request->NumeroIdentificacion, $request->file('TarjetaProfesional'), $TarjetaProfesional->getClientOriginalName());
+
+        $GuiaRegistro = $request->file('DocumentoGuiaRegistro');
+        $RutaGuiaRegistro = 'storage/Soporte_DocumentoGuiaRegistro_' . $request->NumeroIdentificacion . '/' . $GuiaRegistro->getClientOriginalName();
+        Storage::disk('public')->putFileAs('Soporte_DocumentoGuiaRegistro_' . $request->NumeroIdentificacion, $request->file('DocumentoGuiaRegistro'), $GuiaRegistro->getClientOriginalName());
+
+        $Registro = Registro::find($id);
+        $Registro->Nombre = $request->Nombre;
+        $Registro->Apellido = $request->Apellido;
+        $Registro->TipoIdentificacion = $request->TipoIdentificacion;
+        $Registro->NumeroIdentificacion = $request->NumeroIdentificacion;
+        $Registro->FechaExpedicion = $request->FechaExpedicion;
+        $Registro->departamento = $request->departamento;
+        $Registro->ciudad = $request->ciudad;
+        $Registro->Celular = $request->Celular;
+        $Registro->TelefonoFijo = $request->TelefonoFijo;
+        $Registro->TarjetaProfesional = $RutaTarjetaProfesional;
+        $Registro->NGuiaRegistro = $request->NGuiaRegistro;
+        $Registro->DocumentoGuiaRegistro = $RutaGuiaRegistro;
+        $Registro->DescripcionPerfil = $request->DescripcionPerfil;
+        $Registro->update();
+
+
+        toastr()->success('Los datos se han guardado con éxito!');
+        return redirect('inicio');
     }
 
     /**

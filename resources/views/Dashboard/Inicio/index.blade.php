@@ -2,7 +2,7 @@
 @section('page-inner')
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
         <div>
-            <h2 class="text-white pb-7 fw-bold mb-5">Estadisticas En Tiempo Real</h2>
+            <h2 class="text-white pb-7 fw-bold mb-5">Confeguias</h2>
         </div>
     </div>
 @endsection
@@ -42,7 +42,7 @@
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="/pdf/{{ $item->id }}"
                                                                 target="_blank">Visualizar</a>
-                                                            <a class="dropdown-item" href="#">Exportar</a>
+                                                            <a class="dropdown-item" href="{{ route('RegistroTurista.edit',$item->id ) }}">Editar</a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -66,7 +66,7 @@
                                                             <div class="dropdown-menu">
                                                                 <a class="dropdown-item" href="/pdf/{{ $item->id }}"
                                                                     target="_blank">Visualizar</a>
-                                                                <a class="dropdown-item" href="#">Exportar</a>
+                                                                <a class="dropdown-item" href="{{ route('RegistroTurista.edit',$item->id ) }}">Editar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -82,4 +82,39 @@
             </div>
         </div>
     </div>
+
+    @if (auth()->user()->name == 'super master')
+        <div class="page-inner mt--5">
+            <div class="row mt--2">
+                <div class="col-md-12">
+                    <div class="card full-height">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="multi-filter-select" class="display table table-striped table-hover">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Nº Documento</th>
+                                            <th>Nombre Completo</th>
+                                            <th>Correo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($Congreso as $item)
+                                            <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->Tipo }}</td>
+                                                <td>{{ $item->Nombre }} {{ $item->Apellido }}</td>
+                                                <td>{{ $item->Correo }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection

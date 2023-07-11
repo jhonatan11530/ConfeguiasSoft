@@ -71,9 +71,9 @@
                 <select name="TipoIdentificacion" class="form-control mb-2" required>
                     <option value="" selected disabled>Seleccione</option>
                     <option value="Registro civil">Registro civil(RC)</option>
-                    <option value="Targeta de identidad">Tarjeta de identidad(TI)</option>
+                    <option value="Tarjeta de identidad">Tarjeta de identidad(TI)</option>
                     <option value="Cédula de ciudadania">Cédula de ciudadanía(CC)</option>
-                    <option value="Targeta de extrangeria">Tarjeta de extranjería(TE)</option>
+                    <option value="Tarjeta de extrangeria">Tarjeta de extranjería(TE)</option>
                     <option value="Cédula de extrangeria">Cédula de extranjería(CE)</option>
                     <option value="Número de identificacion tributaria">Número de identificación tributaria(NIT)
                     </option>

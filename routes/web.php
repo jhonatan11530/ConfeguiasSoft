@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/RegistroCongreso',[CongresoController::class, 'index']);
+Route::get('/RegistroCongreso', [CongresoController::class, 'index']);
 Route::post('Congreso', [CongresoController::class, 'store']);
 
 Route::get('/RegistroTurista', [RegistroController::class, 'create']);
@@ -41,19 +41,23 @@ Route::get('pdf/{id}', [HomeController::class, 'pdf']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('inicio', [HomeController::class, 'index']);
+
+    Route::get('RegistroTurista/{id}', [RegistroController::class, 'edit'])->name('RegistroTurista.edit');
+
+    Route::post('RegistroTurista/{id}', [RegistroController::class, 'update'])->name('RegistroTurista.update');
 });
 
 
-Route::get('migrate', function() {
+Route::get('migrate', function () {
     Artisan::call('storage:link');
     Artisan::call('migrate');
 });
 
-Route::get('clear', function() {
+Route::get('clear', function () {
     Artisan::call('optimize');
 });
 
-Route::get('logout', function() {
+Route::get('logout', function () {
     Auth::logout();
     return redirect('login');
 });
