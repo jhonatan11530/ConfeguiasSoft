@@ -7,5 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class gremios extends Model
 {
-    use HasFactory;
+    protected $table = 'congreso';
+    protected $fillable = [
+        'id',
+        'Nombre',
+        'Apellido',
+        'Tipo',
+        'Correo',
+        'RNT',
+        'Celular',
+        'opcion',
+        'asociacion',
+        'created_at',
+    ];
 }

@@ -97,6 +97,8 @@
                                             <th>Nº Documento</th>
                                             <th>Nombre Completo</th>
                                             <th>Correo</th>
+                                            <th>Gremio</th>
+                                            <th>Fecha Creacion</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -106,6 +108,8 @@
                                                 <td>{{ $item->Tipo }}</td>
                                                 <td>{{ $item->Nombre }} {{ $item->Apellido }}</td>
                                                 <td>{{ $item->Correo }}</td>
+                                                <td>{{ $item->asociacion }}</td>
+                                                <td>{{ $item->created_at }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

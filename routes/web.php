@@ -39,6 +39,9 @@ Route::post('Congreso/ajax/{id}', [CongresoController::class, 'ajax'])->name('co
 
 Route::get('pdf/{id}', [HomeController::class, 'pdf']);
 
+Route::get('exportar/congreso', [HomeController::class, 'ExportGremio'])->name('Export.Gremio');
+Route::get('exportar/guias', [HomeController::class, 'ExportGuias'])->name('Export.Guias');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('inicio', [HomeController::class, 'index']);
 

@@ -203,6 +203,33 @@
                                 <p>Dashboard</p>
                             </a>
                         </li>
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Componentes</h4>
+                        </li>
+                        <li class="nav-item submenu">
+                            <a data-toggle="collapse" href="#catalogo">
+                                <i class="fas fa-box"></i>
+                                <p>Exportar Informes</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="catalogo">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="{{ route('Export.Guias') }}">
+                                            <span class="sub-item">Exportar Guias</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('Export.Gremio') }}">
+                                            <span class="sub-item">Exportar Congreso</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                     <!-- End Sub Menu -->
                 </div>
