@@ -57,7 +57,7 @@ Route::get('migrate', function () {
 });
 
 Route::get('clear', function () {
-    Artisan::call('optimize');
+    Artisan::call('optimize:clear');
 });
 
 Route::get('logout', function () {
