@@ -136,9 +136,14 @@ class RegistroController extends Controller
         $RutaGuiaRegistro = 'storage/Soporte_DocumentoGuiaRegistro_' . $request->NumeroIdentificacion . '/' . $GuiaRegistro->getClientOriginalName();
         Storage::disk('public')->putFileAs('Soporte_DocumentoGuiaRegistro_' . $request->NumeroIdentificacion, $request->file('DocumentoGuiaRegistro'), $GuiaRegistro->getClientOriginalName());
 
+        $AdjuntarFoto = $request->file('AdjuntarFoto');
+        $RutaAdjuntarFoto = 'storage/soporte_AdjuntoFotoDocumento_' . $request->NumeroIdentificacion . '/' . $AdjuntarFoto->getClientOriginalName();
+        Storage::disk('public')->putFileAs('soporte_AdjuntoFotoDocumento_' . $request->NumeroIdentificacion, $request->file('AdjuntarFoto'), $AdjuntarFoto->getClientOriginalName());
+
         $Registro = Registro::find($id);
         $Registro->Nombre = $request->Nombre;
         $Registro->Apellido = $request->Apellido;
+        $Registro->AdjuntarFoto = $RutaAdjuntarFoto;
         $Registro->TipoIdentificacion = $request->TipoIdentificacion;
         $Registro->NumeroIdentificacion = $request->NumeroIdentificacion;
         $Registro->FechaExpedicion = $request->FechaExpedicion;

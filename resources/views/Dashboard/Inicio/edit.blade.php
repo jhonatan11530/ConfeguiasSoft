@@ -76,11 +76,8 @@
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>Adjunto Tarjeta Profesional <span style="color: red">*</span></label>
-                                {!! Form::file('TarjetaProfesional', null, [
-                                    'class' => 'form-control',
-                                    'accept' => 'application/pdf',
-                                    'required',
-                                ]) !!}
+                                <input type="file" name="TarjetaProfesional" accept="application/pdf"
+                                    class="form-control mb-3" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>NGuia Registro <span style="color: red">*</span></label>
@@ -88,11 +85,13 @@
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>Documento Guia Registro <span style="color: red">*</span></label>
-                                {!! Form::file('DocumentoGuiaRegistro', null, [
-                                    'class' => 'form-control',
-                                    'accept' => 'application/pdf',
-                                    'required',
-                                ]) !!}
+                                <input type="file" name="DocumentoGuiaRegistro" accept="application/pdf"
+                                    class="form-control mb-3" required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>Foto de perfil <span style="color: red">*</span></label>
+                                <input type="file" name="AdjuntarFoto" id="fileInput" accept="image/jpeg, image/png"
+                                    class="form-control mb-3" required>
                             </div>
                             <div class="form-group col-sm-12">
                                 <label>Descripcion Perfil <span style="color: red">*</span></label>
